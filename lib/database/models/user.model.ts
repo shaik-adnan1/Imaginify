@@ -1,6 +1,6 @@
 import { Document, Schema, model, models } from "mongoose";
 
-export interface User extends Document{
+export interface User extends Document {
   clerkId: number;
   email: string;
   username: string;
@@ -11,16 +11,17 @@ export interface User extends Document{
   creditBalance: number;
 }
 
-
 const UserSchema = new Schema({
-    clerkId: {type: Number, required: true, unique: true},
-    email: {type: String, required: true, unique: true},
-    username: {type: String, required: true, unique: true},
-    photo: {type: String, required: true },
-    firstName: {type: String},
-    lastName: {type: String},
-    planId: {type: Number, default: 1},
-    creditBalance: {type: Number, required: true, default: 10}
+  clerkId: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
+  photo: { type: String, required: true },
+  firstName: { type: String },
+  lastName: { type: String },
+  planId: { type: Number, default: 1 },
+  creditBalance: { type: Number, required: true, default: 10 },
 });
 
-const userModel = models?.user || model('User', UserSchema);
+const User = models?.user || model("User", UserSchema);
+
+export default User;
